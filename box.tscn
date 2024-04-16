@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/objects/box.png" type="Texture" id=1]
+[ext_resource path="res://box.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.5, 7 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="Box" type="RigidBody2D"]
+position = Vector2( 0, -6 )
+gravity_scale = 0.0
+script = ExtResource( 2 )
+
+[node name="box_enter" type="Area2D" parent="." groups=["box_enter"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box_enter"]
+position = Vector2( 0, 6 )
+shape = SubResource( 2 )
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 6 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="CollisionBox"]
+position = Vector2( 0, -2.98023e-08 )
+scale = Vector2( 0.03, 0.03 )
+texture = ExtResource( 1 )
